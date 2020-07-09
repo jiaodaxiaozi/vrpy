@@ -2,6 +2,7 @@ import sys
 from networkx import DiGraph
 from pytest import raises
 
+sys.path.append("../../vrpy/")
 from vrpy.subproblem_greedy import SubProblemGreedy
 
 
@@ -52,6 +53,4 @@ class TestsToy:
         self.prob.run_forward()
         self.prob._add_new_route()
         assert set(self.prob.routes[0].nodes()) == {"Source", 1, 2, "Sink"}
-        assert set(self.prob.routes_with_node[1][0].nodes()) == {
-            "Source", 1, 2, "Sink"
-        }
+        assert set(self.prob.routes_with_node[1][0].nodes()) == {"Source", 1, 2, "Sink"}

@@ -72,20 +72,18 @@ Documentation is found [here](https://vrpy.readthedocs.io/en/latest/).
 ### Unit Tests
 
 ```sh
-python3 -m pytest tests/
+cd tests
+pytest unittests/
 ```
 
 ### Benchmarks
 
-To test on some benchmarks instances (Solomon and Augerat) do
-
 ```sh
-python3 -m pytest benchmarks/
+cd tests
+pytest benchmarks/
 ```
 
 Note that running the benchmarks requires [pandas](https://pypi.org/project/pandas/).
-
-For more information and to run more instances, see [run](benchmarks/run.md).
 
 ## Bugs
 

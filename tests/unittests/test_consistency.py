@@ -1,7 +1,10 @@
 from networkx import DiGraph, Graph, NetworkXError
 import pytest
+import sys
 
-from vrpy.main import VehicleRoutingProblem
+sys.path.append("../../vrpy/")
+from vrpy import VehicleRoutingProblem
+
 
 #####################
 # consistency tests #
@@ -68,10 +71,9 @@ def test_mixed_fleet_consistency():
         prob.solve()
     G.edges["Source", "Sink"]["cost"] = [1, 2]
     with pytest.raises(ValueError):
-        prob = VehicleRoutingProblem(G,
-                                     mixed_fleet=True,
-                                     load_capacity=[2, 4],
-                                     fixed_cost=[4])
+        prob = VehicleRoutingProblem(
+            G, mixed_fleet=True, load_capacity=[2, 4], fixed_cost=[4]
+        )
         prob.solve()
 
 
